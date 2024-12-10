@@ -21,6 +21,5 @@ def make_tram_img(next_trams: list[str]):
     draw = ImageDraw.Draw(image)
     # draw.rectangle((50, 50, 200, 72), fill=(255,), outline=(0,), width=5)
     for i, tram in enumerate(next_trams):
-        draw.text((25, 35 + (i*20)), str(tram), fill=(0,), font_size=16)
+        draw.text((25, 35 + (i * 20)), str(tram), fill=(0,), font_size=16)
     return image
-
