@@ -1,0 +1,4 @@
+pillow
+bleak
+python-dotenv
+requests
