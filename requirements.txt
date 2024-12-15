@@ -2,3 +2,4 @@ pillow
 bleak
 python-dotenv
 requests
+pytz
