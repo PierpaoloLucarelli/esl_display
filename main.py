@@ -16,6 +16,7 @@ WRITE_CHARACTERISTIC_UUID = UUID("4b646063-6264-f3a7-8941-e65356ea82fe")
 MAX_CHUNK_SIZE = 480
 SLEEP_SECONDS = 60 * 15
 
+
 async def main(img_hex: str):
     async with BleakClient(ESL_MAC, timeout=30) as client:
         if client.is_connected:
