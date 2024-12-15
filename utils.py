@@ -25,15 +25,10 @@ def image2hex(image, width=255, height=122, dither=Dither.NONE):
 
 def make_tram_img(next_trams: list[dict]):
     image = Image.new("L", (250, 122), 255)
-    draw = ImageDraw.Draw(image)
-    # draw.rectangle((50, 50, 200, 72), fill=(255,), outline=(0,), width=5)
-    # for i, tram in enumerate(next_trams):
-    #     draw.text((25, 35 + (i * 20)), str(tram), fill=(0,), font_size=16)
-
     image.paste(make_header(), (0,0))
     for i, tram in enumerate(next_trams):
         image.paste(make_tram_row(i%2==0, tram), (0, 32 + (i*ROW_HEIGHT)))
-    image.show()
+    # image.show()
     return image
 
 def make_header():
