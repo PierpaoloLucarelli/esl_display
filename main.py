@@ -1,4 +1,5 @@
 import asyncio
+from datetime import datetime
 from uuid import UUID
 
 from PIL import Image
@@ -13,7 +14,6 @@ PRIMARY_SERVICE_UUID = UUID("13187b10-eba9-a3ba-044e-83d3217d9a38")
 WRITE_CHARACTERISTIC_UUID = UUID("4b646063-6264-f3a7-8941-e65356ea82fe")
 MAX_CHUNK_SIZE = 480
 
-
 async def main(img_hex: str):
     async with BleakClient(ESL_MAC, timeout=30) as client:
         if client.is_connected:
@@ -24,7 +24,7 @@ async def main(img_hex: str):
 
 
 if __name__ == "__main__":
-    next_trams = get_next_trams(3)
+    next_trams = get_next_trams(3, datetime.now())
     img: Image = make_tram_img(next_trams)
     img_hex = image2hex(img)
     asyncio.run(main(img_hex))
