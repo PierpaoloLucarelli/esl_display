@@ -1,5 +1,6 @@
 import asyncio
 import time
+import traceback
 from datetime import datetime
 from uuid import UUID
 
@@ -34,5 +35,5 @@ if __name__ == "__main__":
             img_hex = image2hex(img)
             asyncio.run(main(img_hex))
             time.sleep(SLEEP_SECONDS)
-        except:
-            print("Failed to refresh trams")
+        except Exception as e:
+            traceback.print_exc()

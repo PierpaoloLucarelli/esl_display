@@ -29,7 +29,7 @@ def make_tram_img(next_trams: list[dict]):
     image.paste(make_header(), (0, 0))
     for i, tram in enumerate(next_trams):
         image.paste(make_tram_row(i % 2 == 0, tram), (0, 32 + (i * ROW_HEIGHT)))
-    # image.show()
+    image.show()
     return image
 
 
@@ -37,6 +37,7 @@ def make_header():
     image = Image.new("L", (250, 32), 0)
     draw = ImageDraw.Draw(image)
     draw.text((LEFT_PAD, 6), "Den Haag Centraal", fill=(255,), font_size=16)
+    draw.text((COL2_X + 75, 9), datetime.now().strftime("%d/%m %H:%M"), fill=(255,), font_size=12)
     return image
 
 
