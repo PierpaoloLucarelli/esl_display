@@ -34,7 +34,6 @@ if __name__ == "__main__":
         try:
             next_trams = get_next_trams(3, datetime.now())
             img: Image = make_tram_img(next_trams)
-            print("Got tram times and made image")
             img_hex = image2hex(img)
             asyncio.run(main(img_hex))
             time.sleep(SLEEP_SECONDS)
