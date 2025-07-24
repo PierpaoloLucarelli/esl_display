@@ -28,7 +28,6 @@ def get_next_trams(n: int, start_date: datetime):
         )
 
         response = requests.get(URL).json()
-        print(response)
         steps = response["routes"][0]["legs"][0]["steps"]
         if len(steps) == 1 or len(steps) != 3:  # Only walking option, too late bro
             continue
@@ -54,4 +53,3 @@ def get_next_trams(n: int, start_date: datetime):
 
 if __name__ == "__main__":
     next_trams = get_next_trams(3)
-    print(next_trams)
