@@ -29,7 +29,7 @@ def make_tram_img(next_trams: list[dict]):
     image.paste(make_header(), (0, 0))
     for i, tram in enumerate(next_trams):
         image.paste(make_tram_row(i % 2 == 0, tram), (0, 32 + (i * ROW_HEIGHT)))
-    image.show()
+    # image.show()
     return image
 
 

@@ -16,6 +16,7 @@ PRIMARY_SERVICE_UUID = UUID("13187b10-eba9-a3ba-044e-83d3217d9a38")
 WRITE_CHARACTERISTIC_UUID = UUID("4b646063-6264-f3a7-8941-e65356ea82fe")
 MAX_CHUNK_SIZE = 480
 SLEEP_SECONDS = 60 * 15
+FAIL_SLEEP_SECONDS = 60
 
 
 async def main(img_hex: str):
@@ -36,4 +37,5 @@ if __name__ == "__main__":
             asyncio.run(main(img_hex))
             time.sleep(SLEEP_SECONDS)
         except Exception as e:
+            time.sleep(FAIL_SLEEP_SECONDS)
             traceback.print_exc()
